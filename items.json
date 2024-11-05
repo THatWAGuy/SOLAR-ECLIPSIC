@@ -2,7 +2,7 @@
   {
     "name": "Best Staff",
     "tooltip": "Oh god an op summoner weapon",
-    "item_function": "bunnyspawner.lua",
+    "item_function": "spawner.lua",
     "item_image": "ItemTextures/tools_1_16.png",
     "spritesheet_x": 0,
     "spritesheet_y": 80,
