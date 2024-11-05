@@ -1,13 +1,13 @@
 [
   {
-    "name": "Best Staff",
+    "name": "Reinforced Emerald Staff",
     "tooltip": "Oh god an op summoner weapon",
     "item_function": "spawner.lua",
     "item_image": "ItemTextures/tools_1_16.png",
     "spritesheet_x": 0,
     "spritesheet_y": 80,
     "item_resolution": 16,
-    "item_size": 1,
+    "item_size": 2,
     "use_speed": 1,
     "stackable": false,
     "stats": {
@@ -21,12 +21,16 @@
     "item_function": "Pickaxe.lua",
     "item_image": "ItemTextures/tools_1_16.png",
     "spritesheet_x": 0,
-    "spritesheet_y": 96,
+    "spritesheet_y": 64,
     "item_resolution": 16,
     "item_size": 1,
     "use_speed": 1,
     "stackable": false,
     "stats": {
+      "pickaxe_strength": 3,
+      "pickaxe_speed": 10,
+      "pickaxe_range": 9,
+      "swing_speed_visual": 1
     },
     "tags": [
     ]
