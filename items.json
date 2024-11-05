@@ -1,11 +1,27 @@
 [
   {
-    "name": "Bunnystaff",
-    "tooltip": "",
+    "name": "Best Staff",
+    "tooltip": "Oh god an op summoner weapon",
     "item_function": "bunnyspawner.lua",
     "item_image": "ItemTextures/tools_1_16.png",
     "spritesheet_x": 0,
     "spritesheet_y": 80,
+    "item_resolution": 16,
+    "item_size": 1,
+    "use_speed": 1,
+    "stackable": false,
+    "stats": {
+    },
+    "tags": [
+    ]
+  },
+  {
+    "name": "Labradorite Pickaxe",
+    "tooltip": "Oh boy a mod that adds a PICKAXE??? how ORIGINAL.",
+    "item_function": "Pickaxe.lua",
+    "item_image": "ItemTextures/tools_1_16.png",
+    "spritesheet_x": 0,
+    "spritesheet_y": 96,
     "item_resolution": 16,
     "item_size": 1,
     "use_speed": 1,

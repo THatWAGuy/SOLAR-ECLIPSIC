@@ -10,8 +10,11 @@
     "friction": 0.4,
     "size_x": 1,
     "size_y": 1,
+    "collides_with_mobs": true,
     "stats": {
       "gravity": 90,
+      "movement_speed": 18,
+      "max_movement_speed": 25,
       "texture_res_x": 8,
       "texture_res_y": 8,
       "damage": 20,

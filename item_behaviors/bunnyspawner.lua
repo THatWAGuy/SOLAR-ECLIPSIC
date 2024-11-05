@@ -13,7 +13,7 @@ end
 
 function onClick(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPos, deltaTime, currentSlot, mouseFocused)
     spawnMob(getMobID("Bunny"), mouseWorldPos, vec2.new(0,0))
-    player.item_use_cooldown = 0.2
+    player.item_use_cooldown = 0.05
 end
 
 function onHold(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPos, deltaTime, currentSlot, mouseFocused)

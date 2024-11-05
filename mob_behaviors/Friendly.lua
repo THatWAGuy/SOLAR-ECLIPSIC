@@ -89,15 +89,13 @@ function onHitWall(thisMob)
 end
 
 function onHitEntity(thisMob, otherEntity)
-   if(otherEntity:is_player()) then
-
-    --otherEntity:takedamage(-1, 1, 0.4, false)
-
-   else
-    --local angle_to_player = angle(thisMob.position, otherEntity.position)
-    otherEntity:takedamage(20, 1, 0.4, false)
-    thisMob:takedamage(1, 1, 0.4, false)
-    --otherEntity.velocity = otherEntity.velocity + vec2.new(math.cos(angle_to_player) * 15, math.sin(angle_to_player) * 15)
+   if(otherEntity:is_player()==false) then
+        if(otherEntity.      = "Sentry")then
+            otherEntity:takedamage(-1, 1, 0.4, false)
+        else
+            otherEntity:takedamage(20, 1, 0.4, false)
+            thisMob:takedamage(1, 1, 0.4, false)
+        end
    end
 end
 
