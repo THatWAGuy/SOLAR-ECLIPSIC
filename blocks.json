@@ -1,0 +1,12 @@
+[
+  {
+    "block_name": "Labradorite",
+    "block_texture_path": "blockTextures/Labradorite.png",
+    "hardness": 5,
+    "time_to_break": 3,
+    "physicality": "solid",
+    "block_light_r": 1,
+    "block_light_g": 0,
+    "block_light_b": 1
+  }
+]

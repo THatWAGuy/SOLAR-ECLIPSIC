@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Bunny",
+    "max_health": 10,
+    "spawn_health": 10,
+    "mob_ai": "Friendly.lua",
+    "mob_texture": "MobTextures/Zombie.png",
+    "collides_with_blocks": true,
+    "bounce": 0.7,
+    "friction": 0.4,
+    "size_x": 1,
+    "size_y": 1,
+    "stats": {
+      "gravity": 90,
+      "texture_res_x": 8,
+      "texture_res_y": 8,
+      "damage": 20,
+      "knockback": 0
+    }
+  }
+
+]

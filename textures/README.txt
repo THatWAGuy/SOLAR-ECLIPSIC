@@ -1,0 +1,1 @@
+It's recommended you seperate different types of textures into subfolders, but it's not required.
