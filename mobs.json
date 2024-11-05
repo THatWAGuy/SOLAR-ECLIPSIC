@@ -15,7 +15,7 @@
       "gravity": 90,
       "movement_speed": 18,
       "max_movement_speed": 25,
-      "jump_power": 200,
+      "jump_power": 320,
       "max_jump_time": 0.3,
       "jump_time": 0.5,
       "texture_res_x": 8,
