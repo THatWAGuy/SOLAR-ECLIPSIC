@@ -19,7 +19,9 @@
       "texture_res_y": 8,
       "damage": 20,
       "knockback": 0
-    }
+    },
+    "tags": [
+      "sentry"
+    ]
   }
-
 ]

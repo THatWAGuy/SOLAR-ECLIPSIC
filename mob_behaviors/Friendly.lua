@@ -90,7 +90,7 @@ end
 
 function onHitEntity(thisMob, otherEntity)
    if(otherEntity:is_player()==false) then
-        if(otherEntity.      = "Sentry")then
+        if(otherEntity:hastag("sentry"))then
             otherEntity:takedamage(-1, 1, 0.4, false)
         else
             otherEntity:takedamage(20, 1, 0.4, false)
