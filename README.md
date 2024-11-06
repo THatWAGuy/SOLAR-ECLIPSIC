@@ -1,7 +1,11 @@
 # SOLAR-ECLIPSIC
+
+
 mod for the hit indie game eclipsic
 
-anyone can contribute btw
+Newest version of Eclipsic: https://www.mediafire.com/file/xnkvnqqyr0d23ap/Ecl_EA_beta_0.0.2.3.zip/file
+
+anyone can contribute to the mod btw
 
 
 # ok so items
