@@ -27,7 +27,7 @@
     "use_speed": 1,
     "stackable": false,
     "stats": {
-      "pickaxe_strength": 3,
+      "pickaxe_strength": 5,
       "pickaxe_speed": 10,
       "pickaxe_range": 9,
       "swing_speed_visual": 1
