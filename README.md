@@ -17,3 +17,4 @@ anyone can contribute btw
 -  Type: Weapon, Multi-summoning item
 -  Speed: A lot
 -  Summon: Rolling Sentry
+-  ToolTip: "Oh god an op summoner weapon"
