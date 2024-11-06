@@ -26,5 +26,34 @@
     "tags": [
       "sentry"
     ]
+  },
+  {
+    "name": "Flying Zombie",
+    "max_health": 50,
+    "spawn_health": 50,
+    "mob_ai": "fighter.lua",
+    "mob_texture": "MobTextures/Zombie.png",
+    "collides_with_blocks": true,
+    "collides_with_mobs": false,
+    "collides_with_players": true,
+    "bounce": 0.1,
+    "friction": 0.8,
+    "size_x": 0.875,
+    "size_y": 1.875,
+    "stats": {
+      "texture_res_x": 11,
+      "texture_res_y": 15,
+      "run_frames": 4,
+      "movement_speed": 8,
+      "max_movement_speed": 12,
+      "jump_power": 150,
+      "gravity": 1,
+      "max_jump_time": 0.3,
+      "jump_time": 0.3,
+      "damage": 10,
+      "knockback": 5
+    },
+    "tags": [
+    ]
   }
 ]
