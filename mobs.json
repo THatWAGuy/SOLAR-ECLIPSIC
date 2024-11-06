@@ -32,7 +32,7 @@
     "max_health": 50,
     "spawn_health": 50,
     "mob_ai": "fighter.lua",
-    "mob_texture": "MobTextures/Zombie.png",
+    "mob_texture": "MobTextures/FlyingZombie.png",
     "collides_with_blocks": true,
     "collides_with_mobs": false,
     "collides_with_players": true,
