@@ -34,5 +34,25 @@
     },
     "tags": [
     ]
+  },
+  {
+    "name": "Labradorite Shovel",
+    "tooltip": "'Craftable in the graveyard biome!'",
+    "item_function": "shovel.lua",
+    "item_image": "ItemTextures/tools_1_16.png",
+    "spritesheet_x": 0,
+    "spritesheet_y": 112,
+    "item_resolution": 16,
+    "item_size": 1,
+    "use_speed": 1,
+    "stackable": false,
+    "stats": {
+      "pickaxe_strength": 4,
+      "pickaxe_speed": 6,
+      "pickaxe_range": 7,
+      "swing_speed_visual": 0.8
+    },
+    "tags": [
+    ]
   }
 ]
