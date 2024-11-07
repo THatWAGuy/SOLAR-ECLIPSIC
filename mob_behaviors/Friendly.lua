@@ -1,6 +1,9 @@
 function update(deltaTime, thisMob)
     -- Determine where we're going to move
-    local nearestPlayer = findClosestPlayer(thisMob.position)
+    local nearestPlayer = findClosestMobWithTag(thisMob.position, "Hostile")
+    if(nearestPlayer == nil)then
+        local nearestPlayer = findClosestPlayer(thisMob.position)
+    end
     local nearestPlayerPos = nearestPlayer.position
 
     local move_dir = -1
