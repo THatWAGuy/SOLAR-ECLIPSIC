@@ -1,6 +1,6 @@
 function update(deltaTime, thisMob)
     -- Determine where we're going to move
-    local nearestPlayer = findClosestMobWithTag(thisMob.position, "Hostile")
+    local nearestPlayer = findClosestMobWithTag(thisMob.position, "hostile")
     if(nearestPlayer == nil)then
         local nearestPlayer = findClosestPlayer(thisMob.position)
     end

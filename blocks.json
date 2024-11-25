@@ -8,5 +8,15 @@
     "block_light_r": 1,
     "block_light_g": 0,
     "block_light_b": 1
+  },
+  {
+    "block_name": "Pure Emerald",
+    "block_texture_path": "blockTextures/PureEmerald.png",
+    "hardness": 4,
+    "time_to_break": 2,
+    "physicality": "solid",
+    "block_light_r": 0,
+    "block_light_g": 1,
+    "block_light_b": 0
   }
 ]
