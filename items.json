@@ -54,5 +54,28 @@
     },
     "tags": [
     ]
+  },
+  {
+    "name": "BIG FUCKING GUN",
+    "tooltip": "mmm... gun.",
+    "item_function": "gun.lua",
+    "item_image": "ItemTextures/tools_1_16.png",
+    "spritesheet_x": 0,
+    "spritesheet_y": 128,
+    "item_resolution": 16,
+    "item_size": 1,
+    "use_speed": 5,
+    "stackable": false,
+    "stats": {
+      "damage": 30,
+      "crit_chance": 5,
+      "projectile_speed": 64,
+      "projectiles_collide_with_blocks": 1,
+      "projectiles_collide_with_mobs": 1,
+      "projectiles_collide_with_players": 0
+    },
+    "tags": [
+      "bullet"
+    ]
   }
 ]

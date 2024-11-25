@@ -1,0 +1,22 @@
+[
+    {
+        "projectile_name": "bullet",
+        "projectile_function": "bullet.lua",
+        "projectile_spritesheet": "ItemTextures/projectiles_1.png",
+        "spritesheet_x": 0,
+        "spritesheet_y": 0,
+        "projectile_resolution": 8,
+        "projectile_size": 0.6,
+        "simulation_ticks": 1,
+        "collides_with_blocks": true,
+        "damage": 1,
+        "speed": 15,
+        "pierces": 0,
+        "bounces": 0,
+        "bounce_amount": 0,
+        "drag": 0.2,
+        "drop": 3,
+        "stats": {
+        }
+    }
+]
