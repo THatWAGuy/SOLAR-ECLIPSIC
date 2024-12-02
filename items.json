@@ -63,7 +63,7 @@
     "spritesheet_x": 0,
     "spritesheet_y": 128,
     "item_resolution": 16,
-    "item_size": 1,
+    "item_size": 3,
     "use_speed": 5,
     "stackable": false,
     "stats": {
