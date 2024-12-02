@@ -24,8 +24,11 @@ function onClick(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPo
 
     local projectile_speed = currentItem:getstat("projectile_speed").value
 
+<<<<<<< HEAD
     print(projectile_speed)
 
+=======
+>>>>>>> 9d2f449119eaa61444e98ec8d2d80b0493d13e30
     local collides_with_blocks = number_to_bool(currentItem:getstat("projectiles_collide_with_blocks"))
     local collides_with_mobs = number_to_bool(currentItem:getstat("projectiles_collide_with_mobs"))
     local collides_with_players = number_to_bool(currentItem:getstat("projectiles_collide_with_players"))
@@ -35,8 +38,11 @@ function onClick(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPo
     projectile.position = player.position
     projectile.damage = projectile.damage + currentItem:getstat("damage").value
     projectile.velocity = vec2.new(math.cos(mouseAngle) * projectile_speed, math.sin(mouseAngle) * projectile_speed)
+<<<<<<< HEAD
     print(projectile.velocity.x)
     print(projectile.velocity.y)
+=======
+>>>>>>> 9d2f449119eaa61444e98ec8d2d80b0493d13e30
 
 
     shootProjectile(projectile)
