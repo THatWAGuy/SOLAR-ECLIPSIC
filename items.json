@@ -75,7 +75,24 @@
       "projectiles_collide_with_players": 0
     },
     "tags": [
-      "bullet"
+      "emerald_bullet"
+    ]
+  },
+  {
+    "name": "Toast",
+    "tooltip": "griled bred",
+    "item_function": "food.lua",
+    "item_image": "ItemTextures/food.png",
+    "spritesheet_x": 0,
+    "spritesheet_y": 0,
+    "item_resolution": 16,
+    "item_size": 1,
+    "use_speed": 5,
+    "stackable": false,
+    "stats": {
+      "damage": -30
+    },
+    "tags": [
     ]
   }
 ]
