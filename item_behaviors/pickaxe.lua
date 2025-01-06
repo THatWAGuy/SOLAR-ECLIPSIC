@@ -1,31 +1,37 @@
 function onClick(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPos, deltaTime, currentSlot, mouseFocused)
+    --this is pretty self explanatory
+    local currentItem = currentSlot.item
 
-        --this is pretty self explanatory
-        local currentItem = currentSlot.item
+    local playerPos = vec2.new(player.position.x, player.position.y)
+    local playerVel = player.velocity
+    
+    local pick_speed_stat = currentItem:getstat("pickaxe_speed")
+    local pick_power_stat = currentItem:getstat("pickaxe_strength")
+    local pick_range_stat = currentItem:getstat("pickaxe_range")
+    local pick_speed = pick_speed_stat.value * pick_speed_stat:getmult()
+    local pick_power = pick_power_stat.value
+    local pick_range = pick_range_stat.value * pick_range_stat:getmult()
 
-        local playerPos = vec2.new(player.position.x, player.position.y)
-        local playerVel = player.velocity
-        
-        local pick_speed_stat = currentItem:getstat("pickaxe_speed")
-        local pick_power_stat = currentItem:getstat("pickaxe_strength")
-        local pick_range_stat = currentItem:getstat("pickaxe_range")
-        local pick_speed = pick_speed_stat.value
-        local pick_power = pick_power_stat.value
-        local pick_range = pick_range_stat.value
+    currentItem:changestat("held_timer", deltaTime) --held_timer is just for the item display code, not for any actual functionality.
 
-        currentItem:changestat("held_timer", deltaTime) --held_timer is just for the item display code, not for any actual functionality.
+    if(currentItem:getstat("held_timer").value > 2) then
+    
+        currentItem:setstat("held_timer", 0)
+    end
+    
+    if(mouseFocused) then
 
-        if(currentItem:getstat("held_timer").value > 2) then
-        
-            currentItem:setstat("held_timer", 0)
-        end
-        
-        if(mouseFocused) then
+        currentItem:setstat("unf_cursor_pos_x", -999)
+        currentItem:setstat("unf_cursor_pos_y", -999)
 
-            --attempt to break block right where mouse is
+        --attempt to break block right where mouse is
+        if dist(playerPos, mouseWorldPos) < pick_range then
+            local bEntity = blockEntityAtPoint(mouseWorldPos)
+            if (bEntity ~= nil) then
 
-            --dist takes two vec2s and returns the distance in blocks
-            if dist(playerPos, mouseWorldPos) < pick_range then
+                bEntity.timebreaking = bEntity.timebreaking + deltaTime * pick_speed
+
+            else
 
                 --getBlockAt takes a vec2 and returns an integer, which you can use to get the block data
                 local block_ind = getBlockAt(mouseWorldPos)
@@ -33,93 +39,95 @@ function onClick(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPo
 
                 local block_mining_time = block_data.time_to_break
                 local block_hardness = block_data.hardness
-    
+
                 --avoid division by 0
                 if block_hardness < 0.01 then block_hardness = 0.01 end
                 if block_mining_time < 0.01 then block_mining_time = 0.01 end
-                
+
                 local total_time = block_mining_time / pick_speed
-                
+
                 if pick_power >= block_hardness then
-    
+
                     --you might notice that "use_timer" isn't a stat on a pickaxe item. When calling "setstat" or "changestat" for a stat that doesn't exist, it'll make a new stat and assume it's value was 0.
                     currentItem:changestat("use_timer", deltaTime)
 
                     if currentItem:getstat("use_timer").value > total_time then
-    
                         -- Create a new vec2 instance with the same values as mouseWorldPos
                         local center_of_block = vec2.new(mouseWorldPos.x, mouseWorldPos.y)
                         center_of_block.x = math.floor(center_of_block.x) + 0.5
                         center_of_block.y = math.floor(center_of_block.y) + 0.5
-                    
-                        dropItem(block_data.name, 1, center_of_block)
+
+                        dropItem(block_data.name, 1, center_of_block, vec2.new(0,0))
                         alterBlock(mouseWorldPos, 0)
-                    
+
                         currentItem:setstat("use_timer", 0)
                     end
                 end
-            end
+            end    
+        end
+    else 
+
+        --find block we're looking at
+        local angleToMouse = angle(playerPos, mouseWorldPos)
+        local furthestLocation = playerPos - vec2.new(0, 0.2) + vec2.new(math.cos(angleToMouse) * pick_range, math.sin(angleToMouse) * pick_range)
+        local delta = furthestLocation - playerPos
+        local steps
+
+        if(math.abs(delta.x) > math.abs(delta.y)) then 
+            steps = math.abs(delta.x) 
         else 
+            steps = math.abs(delta.y) 
+        end
+        
+        local xIncrement = delta.x / steps
+        local yIncrement = delta.y / steps
+        local currentPoint = playerPos
 
-            --find block we're looking at
-            local angleToMouse = angle(playerPos, mouseWorldPos)
-            local furthestLocation = playerPos - vec2.new(0, 0.2) + vec2.new(math.cos(angleToMouse) * pick_range, math.sin(angleToMouse) * pick_range)
-            local delta = furthestLocation - playerPos
-            local steps
+        --start with i = 0, repeat until i = steps, and change by 1
+        for i=0,steps,1 do 
+        
+            if (getBlockAt(currentPoint) ~= 0) then
+                --there's a block here, attempt to break the block
 
-            if(math.abs(delta.x) > math.abs(delta.y)) then 
-                steps = math.abs(delta.x) 
-            else 
-                steps = math.abs(delta.y) 
-            end
+                currentItem:setstat("unf_cursor_pos_x", currentPoint.x)
+                currentItem:setstat("unf_cursor_pos_y", currentPoint.y)
+
+                local block_ind = getBlockAt(currentPoint)
+                local block_data = getBlockData(block_ind)
+
+                local block_mining_time = block_data.time_to_break
+                local block_hardness = block_data.hardness
+
+                --avoid division by 0
+                if block_hardness < 0.01 then block_hardness = 0.01 end
+                if block_mining_time < 0.01 then block_mining_time = 0.01 end
             
-            local xIncrement = delta.x / steps
-            local yIncrement = delta.y / steps
-            local currentPoint = playerPos
-
-            --start with i = 0, repeat until i = steps, and change by 1
-            for i=0,steps,1 do 
+                local total_time = block_mining_time / pick_speed
             
-                if (getBlockAt(currentPoint) ~= 0) then
-                    --there's a block here, attempt to break the block
+                if pick_power >= block_hardness then
 
-                    local block_ind = getBlockAt(currentPoint)
-                    local block_data = getBlockData(block_ind)
+                    currentItem:changestat("use_timer", deltaTime)
 
-                    local block_mining_time = block_data.time_to_break
-                    local block_hardness = block_data.hardness
-    
-                    --avoid division by 0
-                    if block_hardness < 0.01 then block_hardness = 0.01 end
-                    if block_mining_time < 0.01 then block_mining_time = 0.01 end
+                    if currentItem:getstat("use_timer").value > total_time then
+                        local center_of_block = vec2.new(currentPoint.x, currentPoint.y)
+                        center_of_block.x = math.floor(center_of_block.x) + 0.5
+                        center_of_block.y = math.floor(center_of_block.y) + 0.5
                 
-                    local total_time = block_mining_time / pick_speed
+                        dropItem(block_data.name, 1, center_of_block, vec2.new(0,0))
+                        alterBlock(currentPoint, 0)
                 
-                    if pick_power >= block_hardness then
-    
-                        currentItem:changestat("use_timer", deltaTime)
-    
-                        if currentItem:getstat("use_timer").value > total_time then
-    
-                            local center_of_block = vec2.new(currentPoint.x, currentPoint.y)
-                            center_of_block.x = math.floor(center_of_block.x) + 0.5
-                            center_of_block.y = math.floor(center_of_block.y) + 0.5
-                    
-                            dropItem(block_data.name, 1, center_of_block)
-                            alterBlock(currentPoint, 0)
-                    
-                            currentItem:setstat("use_timer", 0)
-                        end
+                        currentItem:setstat("use_timer", 0)
                     end
-
-                    break
                 end
 
-                currentPoint.x = currentPoint.x + xIncrement
-                currentPoint.y = currentPoint.y + yIncrement
-
+                break
             end
+
+            currentPoint.x = currentPoint.x + xIncrement
+            currentPoint.y = currentPoint.y + yIncrement
+
         end
+    end
 end
 
 function onHold(isLeftClick, isRightClick, player, mouseWorldPos, mouseScreenPos, deltaTime, currentSlot, mouseFocused)
@@ -138,7 +146,7 @@ function bool_to_number(value)
     -- 1 to -1 because easier for rendering code
 end
 
-function onDraw(player, playerFacingRight, mouseWorldPos, mouseScreenPos, mouseState, totalWorldTime, currentSlot)
+function onDraw(player, playerFacingRight, mouseWorldPos, mouseScreenPos, mouseState, totalWorldTime, currentSlot, mouseFocused)
 
     local currentItem = currentSlot.item
     local playerPos = vec2.new(player.position.x, player.position.y)
@@ -152,7 +160,7 @@ function onDraw(player, playerFacingRight, mouseWorldPos, mouseScreenPos, mouseS
     if(mouseState.is_left_held) then
         pickaxe.position = playerPos + vec2.new(math.cos(mouseAngle), math.sin(mouseAngle))
 
-        local time_held = currentSlot.item:getstat("held_timer").value
+        local time_held = currentItem:getstat("held_timer").value
         local swingRotation
         local swingMagnitude = 40
 
@@ -185,7 +193,14 @@ function onDraw(player, playerFacingRight, mouseWorldPos, mouseScreenPos, mouseS
     pickaxe.tex_size = vec2.new(currentItem.texture_size) -- this should be the texture size (in pixels) of your texture.
 
     sprites:add(pickaxe)
-    return sprites --this line is ALSO crucial! It sends the entire list of sprites to the c++ code to go draw it.
+    if ((not mouseFocused) and mouseState.is_left_held or mouseState.is_right_held) then
+        local unfocused = sprite.new()
+        unfocused.size = vec2.new(1,1)
+        unfocused.image_path = "unfocused"
+        unfocused.position = vec2.new(currentItem:getstat("unf_cursor_pos_x").value, currentItem:getstat("unf_cursor_pos_y").value)
+        sprites:add(unfocused)
+    end
 
+    return sprites --this line is ALSO crucial! It sends the entire list of sprites to the c++ code to go draw it
 end
 

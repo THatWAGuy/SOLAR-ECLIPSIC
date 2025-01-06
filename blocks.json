@@ -18,5 +18,15 @@
     "block_light_r": 0,
     "block_light_g": 1,
     "block_light_b": 0
+  },
+  {
+    "block_name": "Pillar",
+    "block_texture_path": "blockTextures/Btnite.png",
+    "hardness": 1,
+    "time_to_break": 1,
+    "physicality": "solid",
+    "block_light_r": 0,
+    "block_light_g": 0,
+    "block_light_b": 0
   }
 ]
