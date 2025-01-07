@@ -29,3 +29,16 @@ anyone can contribute to the mod btw
 -  Speed: A lot
 -  Summon: Rolling Sentry
 -  ToolTip: "Oh god an op summoner weapon"
+
+## BIG FUCKING GUN
+-  Type: Weapon, Gun
+-  Speed: 5
+-  Bullet Speed: 64
+-  Damage: 30
+-  ToolTip: "mmm... gun."
+
+## Toast
+-  Type: Consumable, Healing item
+-  Speed: 5
+-  Amount Healed: 30
+-  ToolTip: "griled bred"
