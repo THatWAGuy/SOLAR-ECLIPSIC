@@ -18,11 +18,11 @@ anyone can contribute to the mod btw
 -  ToolTip: "Oh boy a mod that adds a PICKAXE??? how ORIGINAL."
 
 ## Labradorite Shovel (currently broken)
--  Type: Tool, Pickaxe
--  Speed: 10
--  Range: 9
--  Strength: 5
--  ToolTip: "Oh boy a mod that adds a PICKAXE??? how ORIGINAL."
+-  Type: Tool, Shovel
+-  Speed: 6
+-  Range: 7
+-  Strength: 4
+-  ToolTip: "'Craftable in the graveyard biome!'"
 
 ## Reinforced Emerald Staff
 -  Type: Weapon, Multi-summoning item
