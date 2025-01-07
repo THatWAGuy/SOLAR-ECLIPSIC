@@ -17,8 +17,28 @@ anyone can contribute to the mod btw
 -  Strength: 5
 -  ToolTip: "Oh boy a mod that adds a PICKAXE??? how ORIGINAL."
 
+## Labradorite Shovel (currently broken)
+-  Type: Tool, Shovel
+-  Speed: 6
+-  Range: 7
+-  Strength: 4
+-  ToolTip: "'Craftable in the graveyard biome!'"
+
 ## Reinforced Emerald Staff
 -  Type: Weapon, Multi-summoning item
 -  Speed: A lot
 -  Summon: Rolling Sentry
 -  ToolTip: "Oh god an op summoner weapon"
+
+## BIG FUCKING GUN
+-  Type: Weapon, Gun
+-  Speed: 5
+-  Bullet Speed: 64
+-  Damage: 30
+-  ToolTip: "mmm... gun."
+
+## Toast
+-  Type: Consumable, Healing item
+-  Speed: 5
+-  Amount Healed: 30
+-  ToolTip: "griled bred"
