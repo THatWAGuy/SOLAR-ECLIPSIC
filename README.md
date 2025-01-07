@@ -3,7 +3,7 @@
 
 mod for the hit indie game eclipsic
 
-Newest version of Eclipsic: https://www.mediafire.com/file/xnkvnqqyr0d23ap/Ecl_EA_beta_0.0.2.3.zip/file
+Newest version of Eclipsic: https://www.mediafire.com/file/vxdfyz7uuy78gnf/Ecl_EA_beta_0.0.5.0.zip/file
 
 anyone can contribute to the mod btw
 
