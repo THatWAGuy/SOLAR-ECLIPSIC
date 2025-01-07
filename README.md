@@ -17,6 +17,13 @@ anyone can contribute to the mod btw
 -  Strength: 5
 -  ToolTip: "Oh boy a mod that adds a PICKAXE??? how ORIGINAL."
 
+## Labradorite Shovel (currently broken)
+-  Type: Tool, Pickaxe
+-  Speed: 10
+-  Range: 9
+-  Strength: 5
+-  ToolTip: "Oh boy a mod that adds a PICKAXE??? how ORIGINAL."
+
 ## Reinforced Emerald Staff
 -  Type: Weapon, Multi-summoning item
 -  Speed: A lot
